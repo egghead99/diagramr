@@ -52,7 +52,7 @@ export default function Home() {
         <div className="z-10 flex w-full max-w-4xl flex-col items-center gap-12 text-center">
           {/* Hero Content */}
           <div className="flex flex-col items-center gap-6">
-            <h1 className="max-w-2xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="max-w-4xl font-serif text-4xl sm:text-5xl md:text-6xl">
               Beautiful diagrams from natural language
             </h1>
             <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
@@ -74,7 +74,6 @@ export default function Home() {
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
               </div>
-              <span className="font-mono">preview.diagramr</span>
             </div>
             <div className="aspect-video max-h-[360px] min-h-[280px] w-full">
               <Venn>{previewDiagramContent}</Venn>

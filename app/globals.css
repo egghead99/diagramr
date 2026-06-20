@@ -46,6 +46,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --font-sans: var(--font-sans);
   --font-logo: var(--font-logo);
+  --font-serif: var(--font-serif);
   --text-2xs: var(--size-2xs);
 }
 

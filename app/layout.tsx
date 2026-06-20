@@ -1,4 +1,9 @@
-import { JetBrains_Mono, Geist, Space_Grotesk } from "next/font/google"
+import {
+  JetBrains_Mono,
+  Geist,
+  Space_Grotesk,
+  Instrument_Serif,
+} from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -11,6 +16,12 @@ import { ClerkProvider } from "@clerk/nextjs"
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: "400",
 })
 
 const spaceGrotesk = Space_Grotesk({
@@ -36,7 +47,8 @@ export default function RootLayout({
         "font-sans antialiased",
         jetbrainsMono.variable,
         geist.variable,
-        spaceGrotesk.variable
+        spaceGrotesk.variable,
+        instrumentSerif.variable
       )}
     >
       <body>
