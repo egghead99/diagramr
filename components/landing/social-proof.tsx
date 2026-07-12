@@ -71,7 +71,7 @@ function TestimonialCard({
     <div
       id={id}
       ref={ref}
-      className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:border-teal-100 hover:shadow-lg hover:shadow-teal-500/5"
+      className="group flex flex-col rounded-2xl border border-neutral-100 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-md"
       style={{
         opacity: 0,
         transform: "translateY(24px)",
@@ -93,7 +93,7 @@ function TestimonialCard({
         ))}
       </div>
 
-      <p className="mb-6 flex-1 text-sm leading-relaxed text-gray-600 italic">
+      <p className="mb-6 flex-1 text-sm leading-relaxed text-neutral-600 italic">
         "{quote}"
       </p>
 
@@ -107,8 +107,8 @@ function TestimonialCard({
           {initials}
         </div>
         <div>
-          <p className="text-sm font-semibold text-gray-900">{name}</p>
-          <p className="text-xs text-gray-400">{role}</p>
+          <p className="text-sm font-semibold text-neutral-900">{name}</p>
+          <p className="text-xs text-neutral-400">{role}</p>
         </div>
       </div>
     </div>
@@ -154,7 +154,7 @@ export default function SocialProofSection() {
               <p className="font-serif text-4xl font-medium text-teal-600">
                 {value}
               </p>
-              <p className="mt-1 text-sm text-gray-400">{label}</p>
+              <p className="mt-1 text-sm text-neutral-400">{label}</p>
             </div>
           ))}
         </div>
@@ -169,10 +169,10 @@ export default function SocialProofSection() {
             transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s",
           }}
         >
-          <span className="mb-4 inline-block rounded-full bg-orange-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-orange-500">
+          <span className="mb-4 inline-block rounded-full bg-orange-50 px-4 py-1.5 text-xs font-semibold tracking-widest text-orange-500 uppercase">
             Loved by teams
           </span>
-          <h2 className="font-serif text-4xl font-medium tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="font-serif text-4xl font-medium tracking-tight text-neutral-900 sm:text-5xl">
             What our users say.
           </h2>
         </div>

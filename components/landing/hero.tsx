@@ -27,14 +27,14 @@ export function LandingNav() {
     <nav
       className={`fixed top-4 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 ${
         scrolled
-          ? "w-[min(90vw,900px)] rounded-2xl border border-teal-100 bg-white/90 shadow-lg shadow-teal-900/5 backdrop-blur-md"
+          ? "w-[min(90vw,900px)] rounded-2xl border border-neutral-100 bg-white/80 shadow-lg shadow-neutral-900/5 backdrop-blur-lg"
           : "w-[min(90vw,900px)] rounded-2xl bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between px-5 py-3">
         <Link
           href="/"
-          className="flex items-center gap-2 font-logo text-2xl tracking-tight text-gray-900"
+          className="flex items-center gap-2 font-logo text-2xl tracking-tight text-neutral-900"
           aria-label="Diagramr home"
         >
           <Logo />
@@ -46,7 +46,7 @@ export function LandingNav() {
             <li key={label}>
               <Link
                 href={href}
-                className="text-sm font-medium text-gray-600 transition-colors duration-150 hover:text-teal-600"
+                className="text-sm font-medium text-neutral-600 transition-colors duration-150 hover:text-teal-600"
               >
                 {label}
               </Link>
@@ -100,7 +100,7 @@ export function HeroSection() {
             aria-hidden
           />
           Diagramr 2.0
-          <span className="text-teal-500">· See what's new</span>
+          <span className="text-teal-500">See what's new</span>
           <ArrowRight
             className="h-3.5 w-3.5 text-teal-500 transition-transform duration-200 group-hover:translate-x-0.5"
             aria-hidden
@@ -108,7 +108,7 @@ export function HeroSection() {
         </a>
 
         {/* Headline */}
-        <h1 className="mb-2 max-w-4xl font-serif text-5xl leading-tight font-medium tracking-tight text-gray-900 sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="mb-2 max-w-4xl font-serif text-5xl leading-tight font-medium tracking-tight text-neutral-900 sm:text-6xl md:text-7xl lg:text-8xl">
           Turn ideas into{" "}
           <span className="relative inline-block text-teal-600">
             beautiful
@@ -131,7 +131,7 @@ export function HeroSection() {
         </h1>
 
         {/* Sub */}
-        <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+        <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-neutral-600 sm:text-xl">
           Describe what you want to visualize in plain English, and Diagramr
           generates clean, structured diagrams instantly. No design skills
           needed.
@@ -155,14 +155,14 @@ export function HeroSection() {
           <a
             href="#how-it-works"
             id="hero-cta-secondary"
-            className="flex cursor-pointer items-center gap-2 rounded-xl border border-gray-200 bg-white px-7 py-3.5 text-base font-semibold text-gray-700 shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 active:scale-95"
+            className="flex cursor-pointer items-center gap-2 rounded-xl border border-neutral-200 bg-white px-7 py-3.5 text-base font-semibold text-neutral-700 shadow-sm transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-50 active:scale-95"
           >
             See how it works
           </a>
         </div>
 
         {/* Social proof */}
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-neutral-400">
           No credit card required · Free forever plan available
         </p>
       </div>

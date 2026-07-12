@@ -94,7 +94,7 @@ function FeatureCard({
     <div
       id={id}
       ref={ref}
-      className="group cursor-default rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-300 hover:border-teal-100 hover:shadow-xl hover:shadow-teal-500/5"
+      className="group cursor-default rounded-2xl border border-neutral-100 bg-white p-7 transition-all duration-300 hover:border-neutral-100 hover:shadow-xl hover:shadow-neutral-500/5"
       style={{
         opacity: 0,
         transform: "translateY(24px)",
@@ -110,8 +110,8 @@ function FeatureCard({
       >
         <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
       </div>
-      <h3 className="mb-2 text-base font-semibold text-gray-900">{title}</h3>
-      <p className="text-sm leading-relaxed text-gray-500">{description}</p>
+      <h3 className="mb-2 text-base font-semibold text-neutral-900">{title}</h3>
+      <p className="text-sm leading-relaxed text-neutral-500">{description}</p>
     </div>
   )
 }
@@ -137,7 +137,7 @@ export default function FeaturesSection() {
   }, [])
 
   return (
-    <section id="features" className="bg-gray-50 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="features" className="bg-neutral-50 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div
@@ -149,13 +149,13 @@ export default function FeaturesSection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <span className="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-600">
+          <span className="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-semibold tracking-widest text-teal-600 uppercase">
             Features
           </span>
-          <h2 className="font-serif text-4xl font-medium tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="font-serif text-4xl font-medium tracking-tight text-neutral-900 sm:text-5xl">
             Built for clarity.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-500">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-neutral-500">
             From a single sentence to a production-ready diagram — in seconds.
           </p>
         </div>

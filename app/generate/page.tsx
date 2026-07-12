@@ -23,6 +23,16 @@ import { Generation } from "@/lib/samples"
 import { Check } from "lucide-react"
 
 import { generateDiagramAction } from "./actions"
+import Link from "next/link"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { useEffect } from "react"
 
 const SUGGESTED_PROMPTS = [
   {
@@ -49,6 +59,7 @@ export default function Generate() {
     useState<StyleConfig>(DEFAULT_STYLE_CONFIG)
   const [isGenerating, setIsGenerating] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showCreditDialog, setShowCreditDialog] = useState(false)
   const [generatedResult, setGeneratedResult] = useState<Generation | null>(
     null
   )
@@ -81,11 +92,18 @@ export default function Generate() {
       }
     } catch (err: unknown) {
       console.error("Failed to generate diagram:", err)
-      setError(
+      const errorMessage =
         err instanceof Error
           ? err.message
           : "An error occurred during generation"
-      )
+      
+      if (errorMessage.includes("out of generations")) {
+        setShowCreditDialog(true)
+        setIsGenerating(false)
+        return
+      }
+
+      setError(errorMessage)
       setIsGenerating(false)
     }
   }
@@ -96,6 +114,12 @@ export default function Generate() {
     setIsGenerating(false)
     setError(null)
   }
+
+  useEffect(() => {
+    const onReset = () => handleReset()
+    window.addEventListener("reset-generate", onReset)
+    return () => window.removeEventListener("reset-generate", onReset)
+  }, [])
 
   // Loading state
   if (isGenerating) {
@@ -209,54 +233,14 @@ export default function Generate() {
           {/* Hero */}
           <div className="flex flex-col items-center gap-4 text-center">
             <div className="flex flex-row items-center gap-4">
-              <Select value={diagramType} onValueChange={setDiagramType}>
-                <SelectTrigger className="bg-background px-3 py-6 text-3xl [&>svg]:size-6 [&>svg]:stroke-[1.5] [&>svg]:text-muted-foreground">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem
-                    value="venn"
-                    className="text-base *:[span]:last:flex-col *:[span]:last:items-start *:[span]:last:gap-0"
-                  >
-                    <div className="font-sans">
-                      Venn <span data-label>diagrams</span>
-                    </div>
-                    <SelectItemLabel data-label className="text-sm">
-                      Standard for comparisons
-                    </SelectItemLabel>
-                  </SelectItem>
-                  <SelectItem
-                    disabled
-                    value="force"
-                    className="text-base *:[span]:last:flex-col *:[span]:last:items-start *:[span]:last:gap-0"
-                  >
-                    <div className="font-sans">
-                      Force <span data-label>diagrams</span>
-                    </div>
-                    <SelectItemLabel data-label className="text-sm">
-                      Analyze physical forces
-                    </SelectItemLabel>
-                  </SelectItem>
-                  <SelectItem
-                    disabled
-                    value="circuit"
-                    className="text-base *:[span]:last:flex-col *:[span]:last:items-start *:[span]:last:gap-0"
-                  >
-                    <div className="font-sans">
-                      Circuit <span data-label>diagrams</span>
-                    </div>
-                    <SelectItemLabel data-label className="text-sm">
-                      Model electrical systems
-                    </SelectItemLabel>
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-              <span className="text-4xl font-medium text-foreground">
-                diagram generator
+              <span className="font-serif text-6xl font-medium text-foreground">
+                What are you comparing today?
               </span>
             </div>
             <p className="text-lg text-muted-foreground">
-              Perfect, precise, and aesthetic diagrams from natural language
+              Type a comparison, list of topics, or concepts. Our AI will
+              automatically extract sets, overlaps, and generate a pixel-perfect
+              diagram.
             </p>
           </div>
 
@@ -288,6 +272,25 @@ export default function Generate() {
           </div>
         </div>
       </div>
+
+      <Dialog open={showCreditDialog} onOpenChange={setShowCreditDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Out of credits</DialogTitle>
+            <DialogDescription>
+              You've used all your available diagram generations. Upgrade your plan to get more credits and continue generating.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowCreditDialog(false)}>
+              Cancel
+            </Button>
+            <Button asChild>
+              <Link href="/pricing">Upgrade Plan</Link>
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </main>
   )
 }

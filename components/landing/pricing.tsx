@@ -88,8 +88,8 @@ function PlanCard({
       ref={ref}
       className={`relative flex flex-col rounded-3xl p-7 transition-shadow duration-300 ${
         plan.featured
-          ? "border-2 border-teal-500 bg-teal-600 text-white shadow-2xl shadow-teal-500/30"
-          : "border border-gray-100 bg-white shadow-sm hover:shadow-md"
+          ? "border-2 border-teal-600 bg-teal-600 text-white shadow-2xl shadow-teal-500/30"
+          : "border border-neutral-100 bg-white shadow-sm hover:shadow-md"
       }`}
       style={{
         opacity: 0,
@@ -98,31 +98,31 @@ function PlanCard({
       }}
     >
       {plan.featured && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange-500 px-4 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange-500 px-4 py-1 text-xs font-bold tracking-wider text-white uppercase shadow-md">
           Most popular
         </div>
       )}
 
       <div className="mb-6">
         <p
-          className={`mb-1 text-sm font-semibold uppercase tracking-wider ${plan.featured ? "text-teal-200" : "text-gray-400"}`}
+          className={`mb-1 text-sm font-semibold tracking-wider uppercase ${plan.featured ? "text-teal-200" : "text-neutral-400"}`}
         >
           {plan.name}
         </p>
         <div className="flex items-baseline gap-1">
           <span
-            className={`text-4xl font-bold ${plan.featured ? "text-white" : "text-gray-900"}`}
+            className={`text-4xl font-bold ${plan.featured ? "text-white" : "text-neutral-900"}`}
           >
             {plan.price}
           </span>
           <span
-            className={`text-sm ${plan.featured ? "text-teal-200" : "text-gray-400"}`}
+            className={`text-sm ${plan.featured ? "text-teal-200" : "text-neutral-400"}`}
           >
             /{plan.period}
           </span>
         </div>
         <p
-          className={`mt-2 text-sm ${plan.featured ? "text-teal-100" : "text-gray-500"}`}
+          className={`mt-2 text-sm ${plan.featured ? "text-teal-100" : "text-neutral-500"}`}
         >
           {plan.description}
         </p>
@@ -137,7 +137,7 @@ function PlanCard({
               aria-hidden
             />
             <span
-              className={`text-sm ${plan.featured ? "text-teal-50" : "text-gray-600"}`}
+              className={`text-sm ${plan.featured ? "text-teal-50" : "text-neutral-600"}`}
             >
               {feat}
             </span>
@@ -152,7 +152,7 @@ function PlanCard({
             className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 active:scale-95 ${
               plan.featured
                 ? "bg-white text-teal-700 hover:bg-teal-50"
-                : "border border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50"
+                : "bg-neutral-100 text-neutral-700 hover:bg-neutral-100/80"
             }`}
           >
             {plan.cta}
@@ -164,7 +164,7 @@ function PlanCard({
               className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 active:scale-95 ${
                 plan.featured
                   ? "bg-white text-teal-700 hover:bg-teal-50"
-                  : "border border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50"
+                  : "bg-neutral-100 text-neutral-700 hover:bg-neutral-100/80"
               }`}
             >
               {plan.cta}
@@ -198,7 +198,7 @@ export default function PricingSection() {
   }, [])
 
   return (
-    <section id="pricing" className="bg-gray-50 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="pricing" className="bg-neutral-50 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div
@@ -210,13 +210,13 @@ export default function PricingSection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <span className="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-teal-600">
+          <span className="mb-4 inline-block rounded-full bg-teal-50 px-4 py-1.5 text-xs font-semibold tracking-widest text-teal-600 uppercase">
             Pricing
           </span>
-          <h2 className="font-serif text-4xl font-medium tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="font-serif text-4xl font-medium tracking-tight text-neutral-900 sm:text-5xl">
             Simple, honest pricing.
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-lg text-gray-500">
+          <p className="mx-auto mt-4 max-w-lg text-lg text-neutral-500">
             Start free, scale when you're ready. No hidden fees.
           </p>
         </div>

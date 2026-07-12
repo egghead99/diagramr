@@ -105,7 +105,7 @@ export function CtaSection() {
               <Link
                 href="#pricing"
                 id="cta-pricing"
-                className="flex cursor-pointer items-center gap-2 rounded-xl border border-teal-400/60 px-7 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:border-teal-300 hover:bg-teal-500 active:scale-95"
+                className="flex cursor-pointer items-center gap-2 rounded-xl border border-teal-300/60 px-7 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:border-teal-300/40 hover:bg-teal-500 active:scale-95"
               >
                 View pricing
               </Link>
@@ -123,7 +123,7 @@ export function CtaSection() {
 
 export function LandingFooter() {
   return (
-    <footer className="border-t border-gray-100 bg-white px-4 py-14 sm:px-6 lg:px-8">
+    <footer className="border-t border-neutral-100 bg-white px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           {/* Brand */}
@@ -134,11 +134,11 @@ export function LandingFooter() {
               aria-label="Diagramr home"
             >
               <Logo />
-              <span className="font-mono text-xl text-gray-900 uppercase">
+              <span className="font-mono text-xl text-neutral-900 uppercase">
                 Diagramr
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-500">
+            <p className="text-sm leading-relaxed text-neutral-500">
               AI-powered diagram generation for modern teams.
             </p>
           </div>
@@ -146,7 +146,7 @@ export function LandingFooter() {
           {/* Links */}
           {FOOTER_LINKS.map(({ heading, links }) => (
             <div key={heading}>
-              <p className="mb-4 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+              <p className="mb-4 text-xs font-semibold tracking-wider text-neutral-400 uppercase">
                 {heading}
               </p>
               <ul className="flex flex-col gap-2.5">
@@ -154,7 +154,7 @@ export function LandingFooter() {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-sm text-gray-500 transition-colors duration-150 hover:text-teal-600"
+                      className="text-sm text-neutral-500 transition-colors duration-150 hover:text-teal-600"
                     >
                       {label}
                     </Link>
@@ -165,11 +165,11 @@ export function LandingFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-gray-100 pt-6 sm:flex-row">
-          <p className="text-xs text-gray-400">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-neutral-100 pt-6 sm:flex-row">
+          <p className="text-xs text-neutral-400">
             © {new Date().getFullYear()} Diagramr. All rights reserved.
           </p>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-neutral-400">
             Made with love for visual thinkers.
           </p>
         </div>

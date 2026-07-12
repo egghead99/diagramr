@@ -92,8 +92,12 @@ function StepItem({
         )}
       </div>
       <div className="pb-10">
-        <h3 className="mb-1.5 text-lg font-semibold text-gray-900">{title}</h3>
-        <p className="text-sm leading-relaxed text-gray-500">{description}</p>
+        <h3 className="mb-1.5 text-lg font-semibold text-neutral-900">
+          {title}
+        </h3>
+        <p className="text-sm leading-relaxed text-neutral-500">
+          {description}
+        </p>
       </div>
     </div>
   )
@@ -133,13 +137,13 @@ export default function HowItWorksSection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <span className="mb-4 inline-block rounded-full bg-orange-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-orange-500">
+          <span className="mb-4 inline-block rounded-full bg-orange-50 px-4 py-1.5 text-xs font-semibold tracking-widest text-orange-500 uppercase">
             How it works
           </span>
-          <h2 className="font-serif text-4xl font-medium tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="font-serif text-4xl font-medium tracking-tight text-neutral-900 sm:text-5xl">
             Three steps to clarity.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-500">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-neutral-500">
             From idea to diagram in under 10 seconds.
           </p>
         </div>
@@ -156,7 +160,7 @@ export default function HowItWorksSection() {
           {/* Diagram preview */}
           <div
             ref={diagramRef}
-            className="overflow-hidden rounded-3xl border border-gray-100 bg-gray-50 shadow-xl shadow-teal-500/5"
+            className="overflow-hidden rounded-3xl border border-neutral-100 bg-neutral-50 shadow-xl shadow-neutral-500/5"
             style={{
               opacity: 0,
               transform: "translateY(32px)",
@@ -164,22 +168,33 @@ export default function HowItWorksSection() {
             }}
           >
             {/* Fake browser chrome */}
-            <div className="flex items-center gap-1.5 border-b border-gray-100 bg-white px-4 py-3">
-              <div className="h-2.5 w-2.5 rounded-full bg-red-300" aria-hidden />
-              <div className="h-2.5 w-2.5 rounded-full bg-amber-300" aria-hidden />
-              <div className="h-2.5 w-2.5 rounded-full bg-green-300" aria-hidden />
-              <div className="ml-3 flex-1 rounded-md bg-gray-100 px-3 py-1 text-xs text-gray-400">
+            <div className="flex items-center gap-1.5 border-b border-neutral-100 bg-white px-4 py-3">
+              <div
+                className="h-2.5 w-2.5 rounded-full bg-red-300"
+                aria-hidden
+              />
+              <div
+                className="h-2.5 w-2.5 rounded-full bg-amber-300"
+                aria-hidden
+              />
+              <div
+                className="h-2.5 w-2.5 rounded-full bg-green-300"
+                aria-hidden
+              />
+              <div className="ml-3 flex-1 rounded-lg bg-neutral-100 px-3 py-1 text-xs text-neutral-400">
                 app.diagramr.ai/generate
               </div>
             </div>
 
             {/* Prompt bar */}
-            <div className="border-b border-gray-100 bg-white px-4 py-3">
-              <div className="flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-400">
-                <svg className="h-4 w-4 text-teal-500 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="1.75" stroke="currentColor" aria-hidden>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
-                </svg>
-                <span className="italic">Visualize where our ideas meet AI precision...</span>
+            <div className="border-b border-neutral-100 bg-white px-4 py-3">
+              <div className="flex items-center justify-between gap-2 rounded-lg bg-neutral-50 px-3 py-2 text-sm text-neutral-400">
+                <span className="italic">
+                  Visualize where our ideas meet AI precision...
+                </span>
+                <span className="cursor-default rounded-full bg-teal-600 px-2 py-1 text-xs text-white">
+                  Generate
+                </span>
               </div>
             </div>
 

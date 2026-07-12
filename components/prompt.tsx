@@ -9,7 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { ArrowUp } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { Kbd } from "./ui/kbd"
 
 interface PromptProps {
   value: string
@@ -27,9 +28,9 @@ export function Prompt({
   onSubmit,
 }: PromptProps) {
   return (
-    <div className="relative flex w-full flex-col gap-4 rounded-xl border bg-background p-4 shadow-sm">
+    <div className="relative flex w-full flex-col gap-4 rounded-xl border bg-background p-4 shadow-xl shadow-neutral-200/50">
       <textarea
-        placeholder="Describe the diagram you want to create..."
+        placeholder="e.g., React vs Vue vs Angular, or Introvert vs Extrovert..."
         className="field-sizing-content max-h-48 resize-none bg-transparent text-base outline-none placeholder:text-muted-foreground/60"
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -42,16 +43,18 @@ export function Prompt({
           }
         }}
       />
-      <div className="flex w-full flex-row items-center justify-end gap-2">
+      <div className="flex w-full flex-row items-center justify-between gap-2">
         <Style variant="secondary" config={config} onChange={onConfigChange} />
-        <Button
-          size="icon"
-          className="rounded-full bg-blue-300 text-blue-800 hover:cursor-pointer hover:opacity-90 disabled:opacity-70 dark:bg-blue-700 dark:text-blue-200"
-          disabled={!value.trim()}
-          onClick={onSubmit}
-        >
-          <ArrowUp />
-        </Button>
+        <div className="flex flex-row items-center gap-2">
+          <Kbd>Enter ⏎</Kbd>
+          <Button
+            className="gap-1 rounded-full bg-blue-500 px-3 text-white hover:cursor-pointer hover:opacity-90 disabled:opacity-70"
+            disabled={!value.trim()}
+            onClick={onSubmit}
+          >
+            Generate <ArrowRight />
+          </Button>
+        </div>
       </div>
     </div>
   )
