@@ -28,10 +28,10 @@ export function Prompt({
   onSubmit,
 }: PromptProps) {
   return (
-    <div className="relative flex w-full flex-col gap-4 rounded-xl border bg-background p-4 shadow-xl shadow-neutral-200/50">
+    <div className="relative flex h-full w-full flex-col justify-between gap-4 rounded-xl border bg-neutral-50 p-4 shadow-xl shadow-neutral-200/25">
       <textarea
         placeholder="e.g., React vs Vue vs Angular, or Introvert vs Extrovert..."
-        className="field-sizing-content max-h-48 resize-none bg-transparent text-base outline-none placeholder:text-muted-foreground/60"
+        className="h-auto resize-none bg-transparent text-base outline-none placeholder:text-muted-foreground/60"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onKeyDown={(e) => {
@@ -44,11 +44,13 @@ export function Prompt({
         }}
       />
       <div className="flex w-full flex-row items-center justify-between gap-2">
-        <Style variant="secondary" config={config} onChange={onConfigChange} />
+        <Style variant="outline" config={config} onChange={onConfigChange} />
         <div className="flex flex-row items-center gap-2">
-          <Kbd>Enter ⏎</Kbd>
+          <Kbd className="gap-0.5 px-2 py-1 text-sm">
+            Enter <span className="text-xs text-neutral-400">⏎</span>
+          </Kbd>
           <Button
-            className="gap-1 rounded-full bg-blue-500 px-3 text-white hover:cursor-pointer hover:opacity-90 disabled:opacity-70"
+            className="gap-1 rounded-full bg-blue-500 px-3 text-white transition-colors hover:cursor-pointer hover:italic hover:opacity-90 disabled:opacity-70"
             disabled={!value.trim()}
             onClick={onSubmit}
           >

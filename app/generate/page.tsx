@@ -96,7 +96,7 @@ export default function Generate() {
         err instanceof Error
           ? err.message
           : "An error occurred during generation"
-      
+
       if (errorMessage.includes("out of generations")) {
         setShowCreditDialog(true)
         setIsGenerating(false)
@@ -228,23 +228,23 @@ export default function Generate() {
           <SidebarTrigger />
         </div>
       )}
-      <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden">
-        <div className="relative z-10 flex w-full flex-col items-center gap-10 px-6 sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
+      <div className="relative flex h-full flex-1 flex-col overflow-hidden px-10 py-20">
+        <div className="relative z-10 flex h-full w-full flex-col items-center gap-10 px-6">
           {/* Hero */}
-          <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex w-full flex-col gap-6 text-left">
             <div className="flex flex-row items-center gap-4">
-              <span className="font-serif text-6xl font-medium text-foreground">
+              <span className="w-fit font-serif text-6xl text-blue-500">
                 What are you comparing today?
               </span>
             </div>
-            <p className="text-lg text-muted-foreground">
+            <p className="w-fit text-left text-lg">
               Type a comparison, list of topics, or concepts. Our AI will
               automatically extract sets, overlaps, and generate a pixel-perfect
               diagram.
             </p>
           </div>
 
-          <div className="flex w-full flex-col gap-4">
+          <div className="flex h-full w-full flex-col gap-4">
             {/* Prompt */}
             <Prompt
               value={prompt}
@@ -262,8 +262,8 @@ export default function Generate() {
                   onClick={() => {
                     setPrompt(item.prompt)
                   }}
-                  size="sm"
-                  variant="secondary"
+                  size="lg"
+                  variant="outline"
                 >
                   {item.name}
                 </Button>
@@ -278,11 +278,15 @@ export default function Generate() {
           <DialogHeader>
             <DialogTitle>Out of credits</DialogTitle>
             <DialogDescription>
-              You've used all your available diagram generations. Upgrade your plan to get more credits and continue generating.
+              You've used all your available diagram generations. Upgrade your
+              plan to get more credits and continue generating.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setShowCreditDialog(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setShowCreditDialog(false)}
+            >
               Cancel
             </Button>
             <Button asChild>
