@@ -6,7 +6,6 @@ import { useUser, SignUpButton } from "@clerk/nextjs"
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Venn } from "@/components/venn"
-import Ripple from "@/components/ripple"
 
 export default function Home() {
   const { isSignedIn, isLoaded } = useUser()
@@ -18,37 +17,17 @@ export default function Home() {
     }
   }, [isLoaded, isSignedIn, router])
 
-  // If still loading auth state, or if the user is signed in (redirecting), show a minimal loader or blank page matching layout
+  // If still loading auth state, or if the user is signed in (redirecting), show a minimal loader
   if (!isLoaded || isSignedIn) {
     return (
-      <main className="flex h-screen w-full items-center justify-center bg-transparent">
+      <main className="flex h-screen w-full items-center justify-center bg-background">
         <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
       </main>
     )
   }
 
-  // Sample diagram content to display in the preview
-  const previewDiagramContent = `
-    <venn title-font="sans-serif" header-font="sans-serif" body-font="mono" color-1="blue" color-2="purple">
-      <title>Diagramr AI</title>
-      <circle header="Your Ideas">
-          <item>Complex thoughts</item>
-          <item>Raw data</item>
-          <item>Vague concepts</item>
-      </circle>
-      <circle header="AI Precision">
-          <item>Clean layout</item>
-          <item>Smart structure</item>
-          <item>Interactive styling</item>
-      </circle>
-      <overlap>
-          <item>Perfect diagrams</item>
-      </overlap>
-    </venn>
-  `
-
   return (
-    <main className="relative flex min-h-screen w-full flex-col bg-transparent">
+    <main className="relative flex min-h-screen w-full flex-col bg-background">
       <div className="flex flex-1 flex-col items-center justify-center px-6 py-12 md:py-24">
         <div className="z-10 flex w-full max-w-4xl flex-col items-center gap-12 text-center">
           {/* Hero Content */}
@@ -84,7 +63,7 @@ export default function Home() {
       </div>
 
       {/* Decorative background grid/elements */}
-      <Ripple className="absolute inset-0 h-full w-full" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:14px_24px]" />
     </main>
   )
 }
