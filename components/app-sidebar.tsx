@@ -271,7 +271,16 @@ export function AppSidebar() {
             className="flex-1 rounded-full [word-spacing:-0.2rem]"
             asChild
           >
-            <Link href="/generate">Generate new diagram</Link>
+            <Link
+              href="/generate"
+              onClick={() => {
+                if (pathname === "/generate") {
+                  window.dispatchEvent(new Event("reset-generate"))
+                }
+              }}
+            >
+              Generate new diagram
+            </Link>
           </Button>
           <UserButton />
         </div>
