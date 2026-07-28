@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
   const evt = rawEvt as any
 
   // ── Subscription cancelled ──────────────────────────────────────────
-  if (evt.type === "subscriptionItem.deleted") {
+  if (evt.type === "subscriptionItem.canceled" || evt.type === "subscriptionItem.deleted") {
     console.log(
       `[clerk-billing webhook] ${evt.type}`,
       JSON.stringify(evt.data, null, 2)
