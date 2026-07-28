@@ -1,10 +1,13 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server"
-
-const isProtectedRoute = createRouteMatcher(["/generate(.*)"])
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
 export default clerkMiddleware(async (auth, req) => {
-  if (isProtectedRoute(req)) await auth.protect()
-})
+  const { pathname } = req.nextUrl;
+
+  // Use native Next.js path checking to protect all "/generate" routes
+  if (pathname.startsWith("/generate")) {
+    await auth.protect();
+  }
+});
 
 export const config = {
   matcher: [
@@ -15,4 +18,4 @@ export const config = {
     // Always run for Clerk-specific frontend API routes
     "/__clerk/(.*)",
   ],
-}
+};

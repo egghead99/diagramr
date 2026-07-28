@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.80",
-    "@clerk/nextjs": "^7.3.5",
+    "@clerk/nextjs": "^7.6.2",
     "@phosphor-icons/react": "^2.1.10",
     "@supabase/supabase-js": "^2.106.1",
     "ai": "^6.0.191",
