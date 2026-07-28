@@ -1,9 +1,8 @@
 "use server"
 
-import fs from "fs/promises"
-import path from "path"
 import { generateText } from "ai"
 import { createGoogleGenerativeAI } from "@ai-sdk/google"
+import { SYSTEM_PROMPT } from "@/lib/prompt"
 import { auth } from "@clerk/nextjs/server"
 import { createClient } from "@supabase/supabase-js"
 
@@ -18,8 +17,7 @@ const supabaseAdmin = createClient(
 )
 
 export async function getSystemPrompt() {
-  const filePath = path.join(process.cwd(), "lib", "prompt.md")
-  return await fs.readFile(filePath, "utf-8")
+  return SYSTEM_PROMPT
 }
 
 export async function generateDiagramAction({
