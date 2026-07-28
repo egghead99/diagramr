@@ -94,7 +94,11 @@ export function AppSidebar() {
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
       {
         async accessToken() {
-          return session?.getToken({ template: "supabase" }) ?? null
+          try {
+            return (await session?.getToken({ template: "supabase" })) ?? null
+          } catch {
+            return (await session?.getToken()) ?? null
+          }
         },
       }
     )

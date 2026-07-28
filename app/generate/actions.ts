@@ -41,7 +41,14 @@ export async function generateDiagramAction({
   }
 
   // Initialize Supabase client using Clerk access token
-  const token = await getToken({ template: "supabase" })
+  let token: string | null = null
+  try {
+    token = await getToken({ template: "supabase" })
+  } catch (err) {
+    console.warn("[generateDiagramAction] JWT template 'supabase' not found or error, falling back to default session token:", err)
+    token = await getToken()
+  }
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
