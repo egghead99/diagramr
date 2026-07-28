@@ -41,7 +41,7 @@ export async function generateDiagramAction({
   }
 
   // Initialize Supabase client using Clerk access token
-  const token = await getToken()
+  const token = await getToken({ template: "supabase" })
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
