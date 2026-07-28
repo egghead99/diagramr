@@ -91,7 +91,7 @@ export function AppSidebar() {
   const createClerkSupabaseClient = useCallback(() => {
     return createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
       {
         async accessToken() {
           return session?.getToken({ template: "supabase" }) ?? null
