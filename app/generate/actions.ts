@@ -45,8 +45,19 @@ export async function generateDiagramAction({
   try {
     token = await getToken({ template: "supabase" })
   } catch (err) {
-    console.warn("[generateDiagramAction] JWT template 'supabase' not found or error, falling back to default session token:", err)
-    token = await getToken()
+    console.error(
+      "[generateDiagramAction] JWT template 'supabase' not found or error:",
+      err
+    )
+    throw new Error(
+      "Supabase authentication is not configured. Check that the production Clerk app has a JWT template named 'supabase'."
+    )
+  }
+
+  if (!token) {
+    throw new Error(
+      "Supabase authentication is not configured. Check that the production Clerk app has a JWT template named 'supabase'."
+    )
   }
 
   const supabase = createClient(

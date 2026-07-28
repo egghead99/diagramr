@@ -96,8 +96,12 @@ export function AppSidebar() {
         async accessToken() {
           try {
             return (await session?.getToken({ template: "supabase" })) ?? null
-          } catch {
-            return (await session?.getToken()) ?? null
+          } catch (error) {
+            console.error(
+              "Unable to get Clerk Supabase JWT. Check that the production Clerk app has a JWT template named 'supabase'.",
+              error
+            )
+            return null
           }
         },
       }
@@ -105,7 +109,7 @@ export function AppSidebar() {
   }, [session])
 
   const loadTasks = useCallback(async () => {
-    if (!isLoaded || !user) {
+    if (!isLoaded || !user || !session) {
       return
     }
     const client = createClerkSupabaseClient()
